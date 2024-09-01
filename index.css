@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to top right, black, gray);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 10px solid white;
+    border-radius: 5px;
+    gap: 2px;
+    margin-top: 10px;
+}
+
+.board .cell {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px !important;
+    width: 100px !important;
+    cursor: pointer;
+}
+
+.board .cell svg {
+    height: 30px;
+    width: 30px;
+}
+
+.o-svg {
+    fill: none;
+    stroke: black;
+    stroke-width: 4;
+    stroke-dashoffset: 75;
+    stroke-dasharray: 75;
+    animation: draw .3s forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.x-svg {
+    animation: scale .3s forwards;
+}
+
+@keyframes scale {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.game-information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: sans-serif;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.game-information p {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.game-information button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.game-information button:hover {
+    background: beige;
+}
+
+.game-information.show {
+    visibility: visible;
+}
+
+.container h1 {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.indicator div {
+    font-size: 1.5em;
+    font-weight: 900;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 60px;
+    width: 60px;
+    border: thin solid;
+    border-radius: 50%;
+}
